@@ -1,28 +1,49 @@
 import express from "express";
+import passport from "passport";
 import routes from "../routes";
-import { Video_home, Video_search } from "../Controllers/videoController";
+import { home, search } from "../controllers/videoController";
 import {
-  User_logout,
-  User_getJoin,
-  User_postJoin,
-  User_getLogin,
-  User_postLogin,
-} from "../Controllers/usercontrollers";
-import { onlyPublic } from "../middlewares";
+  getJoin,
+  getLogin,
+  logout,
+  postJoin,
+  postLogin,
+  githubLogin,
+  postGithubLogIn,
+  getMe,
+  postGoogleLogIn,
+  googleLogin,
+} from "../controllers/userController";
+import { onlyPublic, onlyPrivate } from "../middlewares";
 
 const globalRouter = express.Router();
 
-//userController
-globalRouter.get(routes.join, onlyPublic, User_getJoin);
-globalRouter.post(routes.join, onlyPublic, User_postJoin, User_postLogin);
+globalRouter.get(routes.join, onlyPublic, getJoin);
+globalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
 
-globalRouter.get(routes.login, onlyPublic, User_getLogin);
-globalRouter.post(routes.login, onlyPublic, User_postLogin);
+globalRouter.get(routes.login, onlyPublic, getLogin);
+globalRouter.post(routes.login, onlyPublic, postLogin);
 
-//videoController
-globalRouter.get(routes.home, Video_home);
-globalRouter.get(routes.search, Video_search);
+globalRouter.get(routes.home, home);
+globalRouter.get(routes.search, search);
+globalRouter.get(routes.logout, onlyPrivate, logout);
 
-globalRouter.get(routes.logout, onlyPublic, User_logout);
+globalRouter.get(routes.gitHub, githubLogin);
+
+globalRouter.get(
+  routes.githubCallback,
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  postGithubLogIn
+);
+
+globalRouter.get(routes.google, googleLogin);
+
+globalRouter.get(
+  routes.googleCallback,
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  postGoogleLogIn
+);
+
+globalRouter.get(routes.me, getMe);
 
 export default globalRouter;

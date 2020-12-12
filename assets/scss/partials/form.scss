@@ -5,17 +5,17 @@
   align-items: center;
   form {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     margin-bottom: 50px;
     input:not([type="file"]),
     .fileUpload {
       display: block;
       width: 100%;
-      padding-top: 12px;
-      padding-bottom: 12px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       &:not(:last-child) {
-        margin-bottom: 35px;
+        margin-bottom: 25px;
       }
     }
     textarea {
@@ -24,12 +24,11 @@
     }
     input[type="submit"] {
       background-color: #3498db;
-      opacity: 0.85;
       color: white;
     }
   }
   a {
-    max-width: 350px;
+    max-width: 320px;
     width: 100%;
   }
   .fileUpload {

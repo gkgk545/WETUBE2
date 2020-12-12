@@ -25,19 +25,17 @@ textarea,
   width: 100%;
   border: none;
   border-radius: 5px;
-  border-color: rgba(0, 0, 0, 0.3);
   font-size: 14px;
   color: $black;
   font-weight: 600;
   background-color: white;
-  max-width: 350px;
+  max-width: 320px;
   resize: none;
   &::placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7);
   }
 }
-
 button {
   border: none;
   background-color: #3498db;
@@ -46,7 +44,6 @@ button {
 
 button.delete {
   background-color: $dark-red;
-  height: 38px;
 }
 
 button,

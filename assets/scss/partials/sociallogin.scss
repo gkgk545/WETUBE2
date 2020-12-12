@@ -5,12 +5,12 @@
   width: 100%;
   button {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
     &:not(:last-child) {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     span {
       margin-right: 10px;
@@ -21,9 +21,25 @@
     background-color: $black;
     color: white;
   }
-  .social-login--facebook {
-    background-color: #3a5998;
-    opacity: 0.9;
+  .social-login--google {
+    background-color: green;
     color: white;
   }
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: none;
 }
